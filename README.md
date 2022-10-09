@@ -1,7 +1,7 @@
 # HR IS
 Simple Kotlin Spring HR Information System
 
-Instructions for usage:
+Instructions for usage (Windows 10 compatible):
 
 1. Install [Java SDK 17](https://www.oracle.com/java/technologies/downloads/#java17) and add it to your PATH system variable (set the location of the java "bin" folder).
 2. Install [latest version of PostgreSQL](https://www.postgresql.org/download/) along with pgAdmin4 (can be chosen to install along during the installation).
