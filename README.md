@@ -14,7 +14,7 @@ Instructions for usage (Windows 10 compatible):
 	
 	4.3. Click on "PostgreSQL 14"
 	
-	4.4. Right-click on "Databases" and choose Create->Database...
+	4.4. Right-click on "Databases" and choose "Create"->"Database..."
 	
 	4.5. Enter "employee" into the "Database" field and click "Save"
 	
