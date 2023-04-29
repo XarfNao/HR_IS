@@ -28,7 +28,7 @@ class EmployeeController(val service: EmployeeService) {
     }
 
     @GetMapping("/return")
-    fun enter(): String {
+    fun reEnter(): String {
         if (IS_ADMIN) {
             return "homepage_admin"
         }

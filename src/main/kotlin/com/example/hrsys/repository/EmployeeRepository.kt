@@ -8,10 +8,10 @@ import org.springframework.stereotype.Repository
 @Repository
 interface EmployeeRepository : JpaRepository<Employee, Int> {
 
-    @Query("SELECT e.position, COUNT(e.position) as pos_count, FLOOR(ROUND(AVG(e.age), 0)) " +
+    @Query("SELECT e.position, COUNT(e.position) as posCount, FLOOR(ROUND(AVG(e.age), 0)) " +
             "FROM Employee as e " +
             "GROUP BY e.position " +
-            "ORDER BY pos_count DESC")
+            "ORDER BY posCount DESC")
     fun getPositionsStat(): ArrayList<ArrayList<String>>
 
     @Query(value = "SELECT SUM(CASE WHEN age < 20 THEN 1 END) as under20," +
