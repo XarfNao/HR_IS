@@ -1,4 +1,4 @@
-package com.example.hrsys
+package com.xarfnao.hrsys.impl
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
