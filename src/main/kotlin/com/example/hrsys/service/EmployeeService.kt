@@ -40,7 +40,7 @@ class EmployeeService(val repository: EmployeeRepository) {
         if (employee == null) {
             throw IllegalStateException("Employee with id $id does not exist")
         }
-        if (age <= 0) {
+        if (age <= 0 || name == "" || position == "") {
             throw IllegalArgumentException("Given age is not valid, enter number bigger than 0")
         }
         employee.name = name
