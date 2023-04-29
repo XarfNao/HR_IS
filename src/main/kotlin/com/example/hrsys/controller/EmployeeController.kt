@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping("api/employee")
 class EmployeeController(val service: EmployeeService) {
     private final val ADMIN_PASSWORD: String = "Pepa"
+    private var IS_ADMIN: Boolean = false
 
     @GetMapping("/")
     fun enter(model: Model): String {
@@ -19,8 +20,24 @@ class EmployeeController(val service: EmployeeService) {
     @PostMapping("/")
     fun enter(model: Model, @RequestParam(value = "password") password: String): String {
         if (password == ADMIN_PASSWORD) {
+            IS_ADMIN = true
             return "homepage_admin"
         }
+        IS_ADMIN = false
+        return "homepage_normal"
+    }
+
+    @GetMapping("/return")
+    fun enter(): String {
+        if (IS_ADMIN) {
+            return "homepage_admin"
+        }
+        return "homepage_normal"
+    }
+
+    @GetMapping("/normal")
+    fun enterNormal(): String {
+        IS_ADMIN = false
         return "homepage_normal"
     }
 
@@ -78,8 +95,7 @@ class EmployeeController(val service: EmployeeService) {
                      @RequestParam(value = "id") id: Int,
                      @RequestParam(value = "name") name: String,
                      @RequestParam(value = "age") age: Int,
-                     @RequestParam(value = "position") position: String):
-            String {
+                     @RequestParam(value = "position") position: String): String {
         service.editEmployee(id, name, age, position)
         return "edit_success"
     }

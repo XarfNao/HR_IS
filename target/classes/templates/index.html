@@ -1,19 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
-    <meta charset="UTF-8">
-    <title>HR Information System</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" type="text/css" media="all"
-          href="/css/hrNonForm.css" th:href="@{/css/hrNonForm.css}"/>
+  <meta charset="UTF-8">
+  <title>Welcome, log in</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" type="text/css" media="all"
+        href="/css/hrForm.css" th:href="@{/css/hrForm.css}"/>
 </head>
 <body>
-    <h1>Welcome to the HR Information System</h1>
-    <h2>Choose your operation:</h2>
-    <h3><a href="/api/employee/add">Add employee</a></h3>
-    <h3><a href="/api/employee/del">Remove employee</a></h3>
-    <h3><a href="/api/employee/all">Show list of employees</a></h3>
-    <h3><a href="/api/employee/pos_overview">Show statistic with count and average age of employees at every position</a></h3>
-    <h3><a href="/api/employee/age_categ">Show statistic with count of employees by age in categories</a></h3>
+<div align="center">
+  <h2>Enter password to enter as admin</h2>
+  <table>
+  <form th:action="@{/api/employee/}" method="post">
+    <tr>
+      <td>
+        <label>Password:</label>
+      </td>
+      <td>
+        <input type="password" th:name="password"/>
+      </td>
+    </tr>
+    <tr>
+    <td colspan="2">
+      <button class="block" type="submit">Submit</button>
+    </td>
+    </tr>
+  </form>
+    <tr>
+      <td colspan="2">
+        <button class="block" onclick="window.location.href='/api/employee/normal'">Enter as a normal user</button>
+      </td>
+    </tr>
+  </table>
+</div>
 </body>
 </html>
