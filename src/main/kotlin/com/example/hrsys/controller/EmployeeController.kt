@@ -9,6 +9,20 @@ import org.springframework.web.bind.annotation.*
 @Controller
 @RequestMapping("api/employee")
 class EmployeeController(val service: EmployeeService) {
+    private final val ADMIN_PASSWORD: String = "Pepa"
+
+    @GetMapping("/")
+    fun enter(model: Model): String {
+        model.addAttribute("password", "")
+        return "index"
+    }
+    @PostMapping("/")
+    fun enter(model: Model, @RequestParam(value = "password") password: String): String {
+        if (password == ADMIN_PASSWORD) {
+            return "homepage_admin"
+        }
+        return "homepage_normal"
+    }
 
     @GetMapping("/all")
     fun getEmployees(model: Model): String {
