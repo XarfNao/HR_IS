@@ -3,6 +3,7 @@ package com.example.hrsys.service
 import com.example.hrsys.entity.Employee
 import com.example.hrsys.repository.EmployeeRepository
 import org.springframework.stereotype.Service
+import java.lang.IllegalArgumentException
 
 @Service
 class EmployeeService(val repository: EmployeeRepository) {
@@ -38,6 +39,9 @@ class EmployeeService(val repository: EmployeeRepository) {
         val employee: Employee? = repository.getFirstById(id)
         if (employee == null) {
             throw IllegalStateException("Employee with id $id does not exist")
+        }
+        if (age <= 0) {
+            throw IllegalArgumentException("Given age is not valid, enter number bigger than 0")
         }
         employee.name = name
         employee.age = age

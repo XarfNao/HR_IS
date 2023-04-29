@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*
 @Controller
 @RequestMapping("api/employee")
 class EmployeeController(val service: EmployeeService) {
-    private final val ADMIN_PASSWORD: String = "Pepa"
+    private val ADMIN_PASSWORD: String = "Pepa"
     private var IS_ADMIN: Boolean = false
 
     @GetMapping("/")
