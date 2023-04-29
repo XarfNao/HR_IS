@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <title>Remove Employee</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" type="text/css" media="all"
+        href="/css/hrForm.css" th:href="@{/css/hrForm.css}"/>
+</head>
+<body>
+<div align="center">
+  <h2>Remove Employee</h2>
+  <table>
+  <form th:action="@{/api/employee/del}" method="post">
+    <tr>
+      <td>
+        <label>Id:</label>
+      </td>
+      <td>
+        <input type="text" th:name="id"/>
+      </td>
+    </tr>
+    <tr>
+    <td colspan="2">
+      <button class="block" type="submit">Submit</button>
+    </td>
+    </tr>
+  </form>
+  </table>
+  <br/>
+  <a href="/">Click here to return to the main page</a>
+</div>
+</body>
+</html>

@@ -19,4 +19,6 @@ interface EmployeeRepository : JpaRepository<Employee, Int> {
             "SUM(CASE WHEN age >= 40 AND age < 60 THEN 1 END) as above39," +
             "SUM(CASE WHEN age >= 60 THEN 1 END) as above59 FROM Employee", nativeQuery = true)
     fun getAgeStat(): ArrayList<ArrayList<String>>
+
+    fun getFirstById(id: Int): Employee?
 }

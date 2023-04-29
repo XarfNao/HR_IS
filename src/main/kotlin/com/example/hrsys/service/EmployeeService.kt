@@ -33,4 +33,15 @@ class EmployeeService(val repository: EmployeeRepository) {
         }
         repository.deleteById(id)
     }
+
+    fun editEmployee(id: Int, name: String, age: Int, position: String) {
+        val employee: Employee? = repository.getFirstById(id)
+        if (employee == null) {
+            throw IllegalStateException("Employee with id $id does not exist")
+        }
+        employee.name = name
+        employee.age = age
+        employee.position = position
+        repository.save(employee)
+    }
 }

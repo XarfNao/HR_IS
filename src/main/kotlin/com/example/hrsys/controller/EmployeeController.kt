@@ -50,4 +50,23 @@ class EmployeeController(val service: EmployeeService) {
         service.deleteEmployee(id)
         return "del_success"
     }
+
+    @GetMapping("/edit")
+    fun editEmployee(model: Model): String {
+        model.addAttribute("id", 0)
+        model.addAttribute("name", "")
+        model.addAttribute("age", 0)
+        model.addAttribute("position", "")
+        return "edit_form"
+    }
+    @PostMapping("/edit")
+    fun editEmployee(model: Model,
+                     @RequestParam(value = "id") id: Int,
+                     @RequestParam(value = "name") name: String,
+                     @RequestParam(value = "age") age: Int,
+                     @RequestParam(value = "position") position: String):
+            String {
+        service.editEmployee(id, name, age, position)
+        return "edit_success"
+    }
 }
