@@ -28,3 +28,5 @@ or simply by right-clicking it and launching it with Java Platform SE binary (bu
 to quit the application)
 
 To access the running HR IS web application, open your web browser and access the "localhost:9000" or "127.0.0.1:9000" address.
+
+Default administrator password is "Pepa". You can change it by editing ADMIN_PASSWORD constant in src/main/kotlin/com/xarfnao/hrsys/impl/controller/EmployeeController.kt file.
